@@ -6,7 +6,7 @@
      
 - Temática de la aplicación: Aplicación Web LFG
 
-- Descripción breve de la funcionalidad.: Los usuarios de la empresa podrán buscar, crear y chatear con grupos para jugar
+- Descripción breve de la funcionalidad: Los usuarios de la empresa podrán buscar, crear y chatear con grupos para jugar
     
 - Repositorio GIT: https://github.com/GaRaul/Proyecto_Bootcamp
 
