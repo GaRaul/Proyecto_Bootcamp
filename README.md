@@ -12,5 +12,5 @@
 
 - Panel de trello: https://trello.com/b/u6wCzSvb/proyecto-bootcamp-2022
 
-- Documentación: https://docs.google.com/document/d/1VWHua9dUJK2mzBBtcoXbstkIIfv97yeeRCOzRj-iXyk/edit?usp=sharing
+- Recursos y planificación: https://drive.google.com/drive/folders/12H4_UBmjH82Qgg6vsXuVwyPFiyVqVRU4?usp=sharing
 
