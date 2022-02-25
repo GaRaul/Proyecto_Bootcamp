@@ -1,6 +1,6 @@
 # Proyecto_Bootcamp
 
-- Integrantes del equipo: Abel Jornet, Edgar Falcó, Albert Notario, Raúl Garrido
+- Integrantes del equipo: Abel Jornet, Albert Notario, Edgar Falcó, Raúl Garrido
     
 - Nombre de la App: Play Systems
      
