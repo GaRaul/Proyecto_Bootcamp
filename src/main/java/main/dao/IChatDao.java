@@ -1,5 +1,9 @@
 package main.dao;
 
-public interface IChatDao {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import main.dto.Chat;
+
+public interface IChatDao extends JpaRepository<Chat, Integer>{	
 
 }
