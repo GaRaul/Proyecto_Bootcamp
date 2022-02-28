@@ -22,13 +22,15 @@ Juego_nuevo varchar(100),
 foreign key (Id_juego) references Juego(Id_juego) ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table Usuario (
-Nombre_Usuario varchar(20) primary key,
-Nombe varchar(20),
-Apellidos varchar(50),
-Email varchar(100) unique not null,
-Palabra_clave varchar(100) not null,
-Foto_perfil mediumblob,
-Usuario_Steam varchar(20));
+Nombre_usuario varchar(20) NOT NULL,
+Nombre varchar(20) DEFAULT NULL,
+Apellidos varchar(50) DEFAULT NULL,
+Email varchar(100) DEFAULT NULL,
+Palabra_clave varchar(100) DEFAULT NULL,
+Usuario_steam varchar(20) DEFAULT NULL,
+Id_grupo int unsigned,
+PRIMARY KEY(Nombre_usuario),
+foreign key (Id_grupo) references Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table Chat (
 Id_chat int unsigned auto_increment primary key,

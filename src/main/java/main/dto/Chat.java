@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "chat")
+@Table(name = "Chat")
 public class Chat {
 
 	// Atributos
@@ -23,12 +23,11 @@ public class Chat {
 	private int id_chat;
 
 	@OneToOne
-	@JoinColumn(name = "Id_chat")
-	private List<Grupo> id_grupo;
+	private Grupo grupo;
 	
 	@OneToMany
 	@JoinColumn(name = "Id_chat")
-	private List<Mensaje> id_mensaje;	
+	private List<Mensaje> mensaje;	
 
 	// Constructores
 	public Chat() {

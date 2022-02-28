@@ -57,7 +57,7 @@ public class JuegoController {
 		
 		juego_seleccionado.setDescripcion(juego.getDescripcion());
 		juego_seleccionado.setGenero(juego.getGenero());
-		juego_seleccionado.setGrupos(juego.getGrupos());
+		juego_seleccionado.setGrupo(juego.getGrupo());
 		juego_seleccionado.setImagen(juego.getImagen());
 		juego_seleccionado.setNombre(juego.getNombre());
 
@@ -69,7 +69,7 @@ public class JuegoController {
 	}
 
 	@DeleteMapping("/juegos/{id}")
-	public void eliminarGrupo(@PathVariable(name = "id") Long id) {
+	public void eliminarJuego(@PathVariable(name = "id") Long id) {
 
 		juegoServiceImpl.eliminarJuego(id);
 

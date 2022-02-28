@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.swing.Icon;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,19 +30,19 @@ public class Juego {
 	private String descripcion;
 	
 	@Column(name="Imagen")
-	private Icon imagen;
+	private byte imagen;
 	
 	@Column(name="Genero")
 	private String genero;
 	
 	@OneToMany
-	@JoinColumn(name="Id_grupo")
-	private List<Grupo> grupos;
+	@JoinColumn(name="Id_juego")
+	private List<Grupo> grupo;
 	
 	public Juego() {
 	}
 
-	public Juego(Long id_juego, String nombre, String descripcion, Icon imagen, String genero) {
+	public Juego(Long id_juego, String nombre, String descripcion, byte imagen, String genero) {
 		this.id_juego = id_juego;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -75,11 +74,11 @@ public class Juego {
 		this.descripcion = descripcion;
 	}
 
-	public Icon getImagen() {
+	public byte getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(Icon imagen) {
+	public void setImagen(byte imagen) {
 		this.imagen = imagen;
 	}
 
@@ -93,18 +92,18 @@ public class Juego {
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Grupo")
-	public List<Grupo> getGrupos() {
-		return grupos;
+	public List<Grupo> getGrupo() {
+		return grupo;
 	}
 
-	public void setGrupos(List<Grupo> grupos) {
-		this.grupos = grupos;
+	public void setGrupo(List<Grupo> grupo) {
+		this.grupo = grupo;
 	}
 
 	@Override
 	public String toString() {
 		return "Juego [id_juego=" + id_juego + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
-				+ ", genero=" + genero + ", grupos=" + grupos + "]";
+				+ ", genero=" + genero + ", grupo=" + grupo + "]";
 	}
 	
 }
