@@ -6,20 +6,20 @@ DROP table IF EXISTS Mensaje;
 DROP table IF EXISTS Se_Une;
 
 create table Juego (
-Id int unsigned auto_increment primary key,
+Id_juego int unsigned auto_increment primary key,
 Nombre varchar(100) unique,
 Descripcion varchar(500) not null,
 Imagen mediumblob,
 Genero varchar(100));
 
 create table Grupo (
-Id int unsigned auto_increment primary key,
-Id_Juego int unsigned,
+Id_grupo int unsigned auto_increment primary key,
+Id_juego int unsigned,
 Modo_de_Juego enum('Coop', 'PvP', 'PvE'),
 Dimension int unsigned default 2,
 Descripcion varchar(500),
 Juego_nuevo varchar(100),
-foreign key (Id_Juego) references Juego(Id) ON DELETE CASCADE ON UPDATE CASCADE);
+foreign key (Id_juego) references Juego(Id_juego) ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table Usuario (
 Nombre_Usuario varchar(20) primary key,
@@ -31,22 +31,22 @@ Foto_perfil mediumblob,
 Usuario_Steam varchar(20));
 
 create table Chat (
-Id int unsigned auto_increment primary key,
-Id_Grupo int unsigned,
-foreign key (Id_Grupo) references Grupo(Id) ON DELETE CASCADE ON UPDATE CASCADE);
+Id_chat int unsigned auto_increment primary key,
+Id_grupo int unsigned,
+foreign key (Id_grupo) references Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table Mensaje (
-Id int unsigned auto_increment primary key,
-Id_Chat int unsigned,
+Id_mensaje int unsigned auto_increment primary key,
+Id_chat int unsigned,
 Usuario varchar(20),
 Contenido varchar(500),
 Hora time,
-foreign key (Id_Chat) references Chat(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+foreign key (Id_chat) references Chat(Id_chat) ON DELETE CASCADE ON UPDATE CASCADE,
 foreign key (Usuario) references Usuario(Nombre_Usuario) ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table Se_Une (
-Id_Grupo int unsigned,
+Id_grupo int unsigned,
 Nombre_Usuario varchar(20),
-primary key(Id_Grupo, Nombre_Usuario),
-foreign key(Id_Grupo) references Grupo(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+primary key(Id_grupo, Nombre_Usuario),
+foreign key(Id_grupo) references Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE,
 foreign key(Nombre_Usuario) references Usuario(Nombre_Usuario) ON DELETE CASCADE ON UPDATE CASCADE);
