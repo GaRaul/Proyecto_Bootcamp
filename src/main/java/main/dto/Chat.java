@@ -1,6 +1,8 @@
 package main.dto;
 
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,14 +19,15 @@ public class Chat {
 	// Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="Id_chat")
 	private int id_chat;
 
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "Id_chat")
 	private List<Grupo> id_grupo;
 	
 	@OneToMany
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "Id_chat")
 	private List<Mensaje> id_mensaje;	
 
 	// Constructores

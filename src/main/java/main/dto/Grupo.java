@@ -26,10 +26,10 @@ public class Grupo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Id")
-	private long id;
+	@Column(name="Id_grupo")
+	private long id_grupo;
 	
-	@ManyToAny(metaColumn = @Column(name = "Id_Juego"))
+	@ManyToAny(metaColumn = @Column(name = "Id_juego"))
 	private Juego juego;
 	
 	@Enumerated(EnumType.STRING)
@@ -46,15 +46,15 @@ public class Grupo {
 	private String juego_nuevo;
 	
 	@OneToMany
-	@JoinColumn(name="id")
+	@JoinColumn(name="Id_grupo")
 	private List<Usuario> usuarios;
 
 	public Grupo() {
 	}
 
-	public Grupo(long id, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
+	public Grupo(long id_grupo, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
 			String juego_nuevo) {
-		this.id = id;
+		this.id_grupo = id_grupo;
 		this.juego = juego;
 		this.modo_de_juego = modo_de_juego;
 		this.dimension = dimension;
@@ -62,12 +62,12 @@ public class Grupo {
 		this.juego_nuevo = juego_nuevo;
 	}
 
-	public long getId() {
-		return id;
+	public long getId_grupo() {
+		return id_grupo;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId_grupo(long id_grupo) {
+		this.id_grupo = id_grupo;
 	}
 
 	public Juego getJuego() {
@@ -122,7 +122,7 @@ public class Grupo {
 
 	@Override
 	public String toString() {
-		return "Grupo [id=" + id + ", juego=" + juego + ", modo_de_juego=" + modo_de_juego + ", dimension=" + dimension
+		return "Grupo [id_grupo=" + id_grupo + ", juego=" + juego + ", modo_de_juego=" + modo_de_juego + ", dimension=" + dimension
 				+ ", descripcion=" + descripcion + ", juego_nuevo=" + juego_nuevo + ", usuarios=" + usuarios + "]";
 	}
 

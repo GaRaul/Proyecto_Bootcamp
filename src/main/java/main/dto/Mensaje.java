@@ -2,6 +2,7 @@ package main.dto;
 
 import java.sql.Time;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,9 +17,13 @@ public class Mensaje {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
+	@Column(name="Id_mensaje")
+	private int id_mensaje;
+	
+	@Column(name="Contenido")
 	private String contenido;
+	
+	@Column(name="Hora")
 	private Time hora;
 
 	@ManyToOne
@@ -40,8 +45,8 @@ public class Mensaje {
 	 * @param chat
 	 * @param usuario
 	 */
-	public Mensaje(int id, String contenido, Time hora, Chat chat, Usuario usuario) {
-		this.id = id;
+	public Mensaje(int id_mensaje, String contenido, Time hora, Chat chat, Usuario usuario) {
+		this.id_mensaje = id_mensaje;
 		this.contenido = contenido;
 		this.hora = hora;
 		this.chat = chat;
@@ -49,12 +54,12 @@ public class Mensaje {
 	}
 
 	// GETTERS Y SETTERS
-	public int getId() {
-		return id;
+	public int getId_mensaje() {
+		return id_mensaje;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId_mensaje(int id_mensaje) {
+		this.id_mensaje = id_mensaje;
 	}
 
 	public String getContenido() {
@@ -92,7 +97,7 @@ public class Mensaje {
 	// METODO TO STRING
 	@Override
 	public String toString() {
-		return "Mensaje [id=" + id + ", contenido=" + contenido + ", hora=" + hora + ", chat=" + chat + ", usuario="
+		return "Mensaje [id_mensaje=" + id_mensaje + ", contenido=" + contenido + ", hora=" + hora + ", chat=" + chat + ", usuario="
 				+ usuario + "]";
 	}
 

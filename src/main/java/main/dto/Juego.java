@@ -21,8 +21,8 @@ public class Juego {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Id")
-	private Long id;
+	@Column(name="Id_juego")
+	private Long id_juego;
 	
 	@Column(name="Nombre")
 	private String nombre;
@@ -33,30 +33,30 @@ public class Juego {
 	@Column(name="Imagen")
 	private Icon imagen;
 	
-	@Column(name="genero")
+	@Column(name="Genero")
 	private String genero;
 	
 	@OneToMany
-	@JoinColumn(name="id_grupo")
+	@JoinColumn(name="Id_grupo")
 	private List<Grupo> grupos;
 	
 	public Juego() {
 	}
 
-	public Juego(Long id, String nombre, String descripcion, Icon imagen, String genero) {
-		this.id = id;
+	public Juego(Long id_juego, String nombre, String descripcion, Icon imagen, String genero) {
+		this.id_juego = id_juego;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.imagen = imagen;
 		this.genero = genero;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getId_juego() {
+		return id_juego;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId_juego(Long id_juego) {
+		this.id_juego = id_juego;
 	}
 
 	public String getNombre() {
@@ -103,7 +103,7 @@ public class Juego {
 
 	@Override
 	public String toString() {
-		return "Juego [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
+		return "Juego [id_juego=" + id_juego + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
 				+ ", genero=" + genero + ", grupos=" + grupos + "]";
 	}
 	
