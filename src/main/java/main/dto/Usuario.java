@@ -2,13 +2,11 @@ package main.dto;
 
 import java.util.List;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -35,10 +33,11 @@ public class Usuario {
 	@Column(name = "Palabra_clave")
 	private String password;
 
-	@Lob
-	@Basic(fetch = FetchType.LAZY)
 	@Column(name = "Foto_perfil")
-	private byte fotoPerfil;
+	private String fotoPerfil;
+
+	@Column(name = "Rol")
+	private String rol;
 
 	@Column(name = "Usuario_Steam")
 	private String usuarioSteam;
@@ -70,13 +69,14 @@ public class Usuario {
 	 * @param grupos
 	 */
 	public Usuario(String nombreUsuario, String nombre, String apellidos, String email, String password,
-			Byte fotoPerfil, String usuarioSteam, Grupo grupos) {
+			String fotoPerfil, String rol, String usuarioSteam, Grupo grupos) {
 		this.nombreUsuario = nombreUsuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
 		this.password = password;
 		this.fotoPerfil = fotoPerfil;
+		this.rol = rol;
 		this.usuarioSteam = usuarioSteam;
 		this.grupos = grupos;
 	}
@@ -122,12 +122,20 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public byte getFotoPerfil() {
+	public String getFotoPerfil() {
 		return fotoPerfil;
 	}
 
-	public void setFotoPerfil(byte fotoPerfil) {
+	public void setFotoPerfil(String fotoPerfil) {
 		this.fotoPerfil = fotoPerfil;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 
 	public String getUsuarioSteam() {
@@ -170,8 +178,9 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [nombreUsuario=" + nombreUsuario + ", nombre=" + nombre + ", apellidos=" + apellidos
-				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", usuarioSteam="
-				+ usuarioSteam + ", grupos=" + grupos + "]";
+				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", rol=" + rol
+				+ ", usuarioSteam=" + usuarioSteam + ", grupo=" + grupo + ", mensaje=" + mensaje + ", grupos=" + grupos
+				+ "]";
 	}
 
 }
