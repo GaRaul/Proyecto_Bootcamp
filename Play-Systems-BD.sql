@@ -26,6 +26,7 @@ Email varchar(100) DEFAULT NULL,
 Palabra_clave varchar(100) DEFAULT NULL,
 Usuario_steam varchar(20) DEFAULT NULL,
 Foto_perfil varchar(255),
+Rol varchar(50),
 Id_grupo int unsigned,
 PRIMARY KEY(Nombre_Usuario),
 foreign key (Id_grupo) references Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE);
