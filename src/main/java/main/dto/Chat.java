@@ -23,6 +23,7 @@ public class Chat {
 	private int id_chat;
 
 	@OneToOne
+	@JoinColumn(name = "Id_grupo")
 	private Grupo grupo;
 	
 	@OneToMany

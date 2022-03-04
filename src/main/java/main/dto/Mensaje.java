@@ -31,7 +31,7 @@ public class Mensaje {
 	Chat chat;
 
 	@ManyToOne
-	@JoinColumn(name = "Nombre_usuario")
+	@JoinColumn(name = "Nombre_Usuario")
 	Usuario usuario;
 
 	// CONSTRUCTORES
