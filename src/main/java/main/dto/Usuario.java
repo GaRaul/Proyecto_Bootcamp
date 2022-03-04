@@ -1,5 +1,6 @@
 package main.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -35,6 +37,14 @@ public class Usuario {
 
 	@Column(name = "Foto_perfil")
 	private String fotoPerfil;
+
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@Column(name = "Fecha_creación")
+	private LocalDateTime fecha_creación;
+
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@Column(name = "Fecha_modificacion")
+	private LocalDateTime Fecha_modificacion;
 
 	@Column(name = "Rol")
 	private String rol;
@@ -65,17 +75,25 @@ public class Usuario {
 	 * @param email
 	 * @param password
 	 * @param fotoPerfil
+	 * @param fecha_creación
+	 * @param fecha_modificacion
+	 * @param rol
 	 * @param usuarioSteam
+	 * @param grupo
+	 * @param mensaje
 	 * @param grupos
 	 */
 	public Usuario(String nombreUsuario, String nombre, String apellidos, String email, String password,
-			String fotoPerfil, String rol, String usuarioSteam, Grupo grupos) {
+			String fotoPerfil, LocalDateTime fecha_creación, LocalDateTime fecha_modificacion, String rol,
+			String usuarioSteam, Grupo grupos) {
 		this.nombreUsuario = nombreUsuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
 		this.password = password;
 		this.fotoPerfil = fotoPerfil;
+		this.fecha_creación = fecha_creación;
+		this.Fecha_modificacion = fecha_modificacion;
 		this.rol = rol;
 		this.usuarioSteam = usuarioSteam;
 		this.grupos = grupos;
@@ -128,6 +146,22 @@ public class Usuario {
 
 	public void setFotoPerfil(String fotoPerfil) {
 		this.fotoPerfil = fotoPerfil;
+	}
+
+	public LocalDateTime getFecha_creación() {
+		return fecha_creación;
+	}
+
+	public void setFecha_creación(LocalDateTime fecha_creación) {
+		this.fecha_creación = fecha_creación;
+	}
+
+	public LocalDateTime getFecha_modificacion() {
+		return Fecha_modificacion;
+	}
+
+	public void setFecha_modificacion(LocalDateTime fecha_modificacion) {
+		Fecha_modificacion = fecha_modificacion;
 	}
 
 	public String getRol() {
