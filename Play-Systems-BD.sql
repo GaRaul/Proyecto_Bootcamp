@@ -61,7 +61,7 @@ Hora datetime,
 foreign key (Id_chat) references Chat(Id_chat) ON DELETE CASCADE ON UPDATE CASCADE,
 foreign key (Nombre_Usuario) references Usuario(Nombre_Usuario) ON DELETE CASCADE ON UPDATE CASCADE);
 
-insert into Mensaje (Id_Chat, Usuario, Contenido, Hora) values (1, 'albert', 'hola que tal', '1998-01-23 12:45:56');
+insert into Mensaje (Id_Chat, Usuario, Contenido, Hora) values (1, 'albert', 'hola que tal', '23-01-1998 12:45:56');
 
 create table Se_Une (
 Id_seune int unsigned auto_increment,
