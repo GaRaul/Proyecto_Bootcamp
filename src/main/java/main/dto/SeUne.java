@@ -1,5 +1,6 @@
 package main.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,8 @@ public class SeUne {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Column(name="Id_seune")
+	private int id_seune;
 
 	@ManyToOne
 	@JoinColumn(name = "Id_grupo")
@@ -33,19 +35,19 @@ public class SeUne {
 	 * @param grupo
 	 * @param usuario
 	 */
-	public SeUne(int id, Grupo grupo, Usuario usuario) {
-		this.id = id;
+	public SeUne(int id_seune, Grupo grupo, Usuario usuario) {
+		this.id_seune = id_seune;
 		this.grupo = grupo;
 		this.usuario = usuario;
 	}
 
 	// GETTERS Y SETTERS
-	public int getId() {
-		return id;
+	public int getId_seune() {
+		return id_seune;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId_seune(int id) {
+		this.id_seune = id;
 	}
 
 	public Grupo getGrupo() {
@@ -67,7 +69,7 @@ public class SeUne {
 	// METODO TO STRING
 	@Override
 	public String toString() {
-		return "SeUne [id=" + id + ", grupo=" + grupo + ", usuario=" + usuario + "]";
+		return "SeUne [id_seune=" + id_seune + ", grupo=" + grupo + ", usuario=" + usuario + "]";
 	}
 
 }

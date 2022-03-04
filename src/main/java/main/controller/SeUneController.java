@@ -22,19 +22,19 @@ public class SeUneController {
 	@Autowired
 	SeUneServiceImpl seUneServiceImpl;
 
-	@GetMapping("/se_une")
+	@GetMapping("/seune")
 	public List<SeUne> listarSeUne() {
 
 		return seUneServiceImpl.listarSeUne();
 	}
 
-	@PostMapping("/se_une")
+	@PostMapping("/seune")
 	public SeUne guardarSeUne(@RequestBody SeUne seUne) {
 
 		return seUneServiceImpl.guardarSeUne(seUne);
 	}
 
-	@GetMapping("/se_une/{id}")
+	@GetMapping("/seune/{id}")
 	public SeUne seUneXID(@PathVariable(name = "id") Integer id) {
 
 		SeUne seUneXID = new SeUne();
@@ -46,7 +46,7 @@ public class SeUneController {
 		return seUneXID;
 	}
 
-	@PutMapping("/se_une/{id}")
+	@PutMapping("/seune/{id}")
 	public SeUne actualizarSeUne(@PathVariable(name = "id") Integer id, @RequestBody SeUne seUne) {
 
 		SeUne seUne_seleccionado = new SeUne();
@@ -64,7 +64,7 @@ public class SeUneController {
 		return seUne_actualizado;
 	}
 
-	@DeleteMapping("/se_une/{id}")
+	@DeleteMapping("/seune/{id}")
 	public void eliminarSeUne(@PathVariable(name = "id") Integer id) {
 
 		seUneServiceImpl.eliminarSeUne(id);
