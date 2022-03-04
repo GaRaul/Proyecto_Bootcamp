@@ -30,7 +30,7 @@ public class Juego {
 	private String descripcion;
 	
 	@Column(name="Imagen")
-	private byte imagen;
+	private String imagen;
 	
 	@Column(name="Genero")
 	private String genero;
@@ -42,7 +42,7 @@ public class Juego {
 	public Juego() {
 	}
 
-	public Juego(Long id_juego, String nombre, String descripcion, byte imagen, String genero) {
+	public Juego(Long id_juego, String nombre, String descripcion, String imagen, String genero) {
 		this.id_juego = id_juego;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -74,11 +74,11 @@ public class Juego {
 		this.descripcion = descripcion;
 	}
 
-	public byte getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(byte imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 
