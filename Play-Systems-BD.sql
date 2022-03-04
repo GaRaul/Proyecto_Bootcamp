@@ -6,7 +6,7 @@ create table Juego (
 Id_juego int unsigned auto_increment primary key,
 Nombre varchar(100) unique,
 Descripcion varchar(500) not null,
-Imagen mediumblob,
+Imagen varchar(255),
 Genero varchar(100));
 
 create table Grupo (
@@ -25,7 +25,7 @@ Apellidos varchar(50) DEFAULT NULL,
 Email varchar(100) DEFAULT NULL,
 Palabra_clave varchar(100) DEFAULT NULL,
 Usuario_steam varchar(20) DEFAULT NULL,
-Foto_perfil mediumblob,
+Foto_perfil varchar(255),
 Id_grupo int unsigned,
 PRIMARY KEY(Nombre_Usuario),
 foreign key (Id_grupo) references Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE);
