@@ -50,16 +50,19 @@ public class Grupo {
 	private List<Usuario> usuarios;
 
 	public Grupo() {
+		super();
 	}
 
 	public Grupo(Long id_grupo, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
-			String juego_nuevo) {
+			String juego_nuevo, List<Usuario> usuarios) {
+		super();
 		this.id_grupo = id_grupo;
 		this.juego = juego;
 		this.modo_de_juego = modo_de_juego;
 		this.dimension = dimension;
 		this.descripcion = descripcion;
 		this.juego_nuevo = juego_nuevo;
+		this.usuarios = usuarios;
 	}
 
 	public Long getId_grupo() {
