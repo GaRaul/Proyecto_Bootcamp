@@ -37,7 +37,7 @@ public class JuegoController {
 	}
 
 	@GetMapping("/juegos/{id}")
-	public Juego grupoXID(@PathVariable(name = "id") Long id) {
+	public Juego juegoXID(@PathVariable(name = "id") Long id) {
 		Juego juegoXID = new Juego();
 
 		juegoXID = juegoServiceImpl.juegoXID(id);
