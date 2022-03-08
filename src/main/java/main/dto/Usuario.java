@@ -39,8 +39,8 @@ public class Usuario {
 	private String fotoPerfil;
 
 	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
-	@Column(name = "Fecha_creación")
-	private LocalDateTime fecha_creación;
+	@Column(name = "Fecha_creacion")
+	private LocalDateTime fecha_creacion;
 
 	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 	@Column(name = "Fecha_modificacion")
@@ -52,7 +52,7 @@ public class Usuario {
 	@Column(name = "Usuario_Steam")
 	private String usuarioSteam;
 
-	@OneToMany
+	@OneToMany 
 	@JoinColumn(name = "Nombre_Usuario")
 	private List<Grupo> grupo;
 
@@ -75,7 +75,7 @@ public class Usuario {
 	 * @param email
 	 * @param password
 	 * @param fotoPerfil
-	 * @param fecha_creación
+	 * @param fecha_creacion
 	 * @param fecha_modificacion
 	 * @param rol
 	 * @param usuarioSteam
@@ -84,7 +84,7 @@ public class Usuario {
 	 * @param grupos
 	 */
 	public Usuario(String nombreUsuario, String nombre, String apellidos, String email, String password,
-			String fotoPerfil, LocalDateTime fecha_creación, LocalDateTime fecha_modificacion, String rol,
+			String fotoPerfil, LocalDateTime fecha_creacion, LocalDateTime fecha_modificacion, String rol,
 			String usuarioSteam, Grupo grupos) {
 		this.nombreUsuario = nombreUsuario;
 		this.nombre = nombre;
@@ -92,7 +92,7 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 		this.fotoPerfil = fotoPerfil;
-		this.fecha_creación = fecha_creación;
+		this.fecha_creacion = fecha_creacion;
 		this.fecha_modificacion = fecha_modificacion;
 		this.rol = rol;
 		this.usuarioSteam = usuarioSteam;
@@ -148,12 +148,12 @@ public class Usuario {
 		this.fotoPerfil = fotoPerfil;
 	}
 
-	public LocalDateTime getFecha_creación() {
-		return fecha_creación;
+	public LocalDateTime getFecha_creacion() {
+		return fecha_creacion;
 	}
 
-	public void setFecha_creación(LocalDateTime fecha_creación) {
-		this.fecha_creación = fecha_creación;
+	public void setFecha_creacion(LocalDateTime fecha_creación) {
+		this.fecha_creacion = fecha_creación;
 	}
 
 	public LocalDateTime getFecha_modificacion() {
@@ -212,8 +212,8 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [nombreUsuario=" + nombreUsuario + ", nombre=" + nombre + ", apellidos=" + apellidos
-				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", fecha_creación="
-				+ fecha_creación + ", fecha_modificacion=" + fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
+				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", fecha_creacion="
+				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
 				+ usuarioSteam + ", grupo=" + grupo + ", mensaje=" + mensaje + ", grupos=" + grupos + "]";
 	}
 
