@@ -53,6 +53,8 @@ public class ChatController {
 
 		chat_seleccionada = chatServiceImpl.chatXID(id);		
 
+		chat_seleccionada.setGrupo(chat.getGrupo());
+		
 		chat_actualizada = chatServiceImpl.actualizarChat(chat_seleccionada);
 
 		System.out.println("La Chat actualizada es: " + chat_actualizada);

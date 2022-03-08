@@ -26,7 +26,7 @@ public class Grupo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Id_grupo")
-	private long id_grupo;
+	private Long id_grupo;
 	
 	@ManyToOne 
 	@JoinColumn(name = "Id_juego")
@@ -50,23 +50,26 @@ public class Grupo {
 	private List<Usuario> usuarios;
 
 	public Grupo() {
+		super();
 	}
 
-	public Grupo(long id_grupo, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
-			String juego_nuevo) {
+	public Grupo(Long id_grupo, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
+			String juego_nuevo, List<Usuario> usuarios) {
+		super();
 		this.id_grupo = id_grupo;
 		this.juego = juego;
 		this.modo_de_juego = modo_de_juego;
 		this.dimension = dimension;
 		this.descripcion = descripcion;
 		this.juego_nuevo = juego_nuevo;
+		this.usuarios = usuarios;
 	}
 
-	public long getId_grupo() {
+	public Long getId_grupo() {
 		return id_grupo;
 	}
 
-	public void setId_grupo(long id_grupo) {
+	public void setId_grupo(Long id_grupo) {
 		this.id_grupo = id_grupo;
 	}
 
