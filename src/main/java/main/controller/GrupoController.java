@@ -37,13 +37,13 @@ public class GrupoController {
 	}
 
 	@GetMapping("/grupos/{id}")
-	public Grupo grupoXID(@PathVariable(name = "id") Long id) {
+	public Grupo grupoXID(@PathVariable(name="id") Long id) {
 		Grupo grupoXID = new Grupo();
-
+		
 		grupoXID = grupoServiceImpl.grupoXID(id);
-
+		
 		System.out.println("Grupo XID: " + grupoXID);
-
+		
 		return grupoXID;
 	}
 
