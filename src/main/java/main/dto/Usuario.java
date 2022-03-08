@@ -44,7 +44,7 @@ public class Usuario {
 
 	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 	@Column(name = "Fecha_modificacion")
-	private LocalDateTime Fecha_modificacion;
+	private LocalDateTime fecha_modificacion;
 
 	@Column(name = "Rol")
 	private String rol;
@@ -93,7 +93,7 @@ public class Usuario {
 		this.password = password;
 		this.fotoPerfil = fotoPerfil;
 		this.fecha_creación = fecha_creación;
-		this.Fecha_modificacion = fecha_modificacion;
+		this.fecha_modificacion = fecha_modificacion;
 		this.rol = rol;
 		this.usuarioSteam = usuarioSteam;
 		this.grupos = grupos;
@@ -157,11 +157,11 @@ public class Usuario {
 	}
 
 	public LocalDateTime getFecha_modificacion() {
-		return Fecha_modificacion;
+		return fecha_modificacion;
 	}
 
 	public void setFecha_modificacion(LocalDateTime fecha_modificacion) {
-		Fecha_modificacion = fecha_modificacion;
+		this.fecha_modificacion = fecha_modificacion;
 	}
 
 	public String getRol() {
@@ -213,7 +213,7 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [nombreUsuario=" + nombreUsuario + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", fecha_creación="
-				+ fecha_creación + ", Fecha_modificacion=" + Fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
+				+ fecha_creación + ", fecha_modificacion=" + fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
 				+ usuarioSteam + ", grupo=" + grupo + ", mensaje=" + mensaje + ", grupos=" + grupos + "]";
 	}
 
