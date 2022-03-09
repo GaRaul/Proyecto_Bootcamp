@@ -83,10 +83,10 @@ public class Usuario {
 	 * @param mensaje
 	 * @param grupos
 	 */
-	public Usuario(String nombreUsuario, String nombre, String apellidos, String email, String password,
+	public Usuario(String nombre_usuario, String nombre, String apellidos, String email, String password,
 			String fotoPerfil, LocalDateTime fecha_creacion, LocalDateTime fecha_modificacion, String rol,
 			String usuarioSteam, Grupo grupos) {
-		this.nombre_usuario = nombreUsuario;
+		this.nombre_usuario = nombre_usuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
