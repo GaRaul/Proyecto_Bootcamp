@@ -21,7 +21,7 @@ public class Usuario {
 
 	@Id
 	@Column(name = "Nombre_Usuario")
-	private String nombreUsuario;
+	private String nombre_usuario;
 
 	@Column(name = "Nombre")
 	private String nombre;
@@ -86,7 +86,7 @@ public class Usuario {
 	public Usuario(String nombreUsuario, String nombre, String apellidos, String email, String password,
 			String fotoPerfil, LocalDateTime fecha_creacion, LocalDateTime fecha_modificacion, String rol,
 			String usuarioSteam, Grupo grupos) {
-		this.nombreUsuario = nombreUsuario;
+		this.nombre_usuario = nombreUsuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
@@ -101,11 +101,11 @@ public class Usuario {
 
 	// GETTERS Y SETTERS
 	public String getNombreUsuario() {
-		return nombreUsuario;
+		return nombre_usuario;
 	}
 
 	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
+		this.nombre_usuario = nombreUsuario;
 	}
 
 	public String getNombre() {
@@ -211,7 +211,7 @@ public class Usuario {
 	// METODO TO STRING
 	@Override
 	public String toString() {
-		return "Usuario [nombreUsuario=" + nombreUsuario + ", nombre=" + nombre + ", apellidos=" + apellidos
+		return "Usuario [nombreUsuario=" + nombre_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", fecha_creacion="
 				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
 				+ usuarioSteam + ", grupo=" + grupo + ", mensaje=" + mensaje + ", grupos=" + grupos + "]";
