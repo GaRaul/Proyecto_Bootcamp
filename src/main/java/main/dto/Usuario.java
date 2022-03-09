@@ -100,12 +100,12 @@ public class Usuario {
 	}
 
 	// GETTERS Y SETTERS
-	public String getNombreUsuario() {
+	public String getNombre_usuario() {
 		return nombre_usuario;
 	}
 
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombre_usuario = nombreUsuario;
+	public void setNombre_usuario(String nombre_usuario) {
+		this.nombre_usuario = nombre_usuario;
 	}
 
 	public String getNombre() {
