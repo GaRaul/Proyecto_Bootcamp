@@ -43,7 +43,7 @@ foreign key (Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CA
 CREATE TABLE Mensaje (
 Id_mensaje int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 Id_chat int NOT NULL,
-Nombre_Usuario varchar(20) DEFAULT NULL,
+Nombre_usuario varchar(20) DEFAULT NULL,
 Contenido varchar(500) DEFAULT NULL,
 Hora datetime DEFAULT NULL,
 FOREIGN KEY (Id_chat) REFERENCES Chat(Id_chat) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -52,7 +52,7 @@ FOREIGN KEY (Nombre_usuario) REFERENCES Usuario(Nombre_usuario) ON DELETE CASCAD
 CREATE TABLE Se_Une (
 Id_seune int NOT NULL AUTO_INCREMENT,
 Id_grupo int NOT NULL,
-Nombre_Usuario varchar(20) NOT NULL,
+Nombre_usuario varchar(20) NOT NULL,
 PRIMARY KEY(Id_seune, Id_grupo, Nombre_usuario),
 FOREIGN KEY(Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY(Nombre_usuario) REFERENCES Usuario(Nombre_usuario) ON DELETE CASCADE ON UPDATE CASCADE);
