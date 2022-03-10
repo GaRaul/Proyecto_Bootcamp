@@ -14,3 +14,5 @@
 
 - Recursos y planificación: https://drive.google.com/drive/folders/12H4_UBmjH82Qgg6vsXuVwyPFiyVqVRU4?usp=sharing
 
+- Documentacion API endpoints: https://play-systems.herokuapp.com/swagger-ui/index.html
+
