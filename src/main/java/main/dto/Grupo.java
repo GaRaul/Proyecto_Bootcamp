@@ -54,7 +54,7 @@ public class Grupo {
 	}
 
 	public Grupo(Long id_grupo, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
-			String juego_nuevo, List<Usuario> usuarios) {
+			String juego_nuevo) {
 		super();
 		this.id_grupo = id_grupo;
 		this.juego = juego;
@@ -62,7 +62,6 @@ public class Grupo {
 		this.dimension = dimension;
 		this.descripcion = descripcion;
 		this.juego_nuevo = juego_nuevo;
-		this.usuarios = usuarios;
 	}
 
 	public Long getId_grupo() {
@@ -126,9 +125,7 @@ public class Grupo {
 	@Override
 	public String toString() {
 		return "Grupo [id_grupo=" + id_grupo + ", juego=" + juego + ", modo_de_juego=" + modo_de_juego + ", dimension=" + dimension
-				+ ", descripcion=" + descripcion + ", juego_nuevo=" + juego_nuevo + ", usuarios=" + usuarios + "]";
+				+ ", descripcion=" + descripcion + ", juego_nuevo=" + juego_nuevo + "]";
 	}
-
-	
 	
 }

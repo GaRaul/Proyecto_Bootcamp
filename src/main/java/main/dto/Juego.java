@@ -103,7 +103,7 @@ public class Juego {
 	@Override
 	public String toString() {
 		return "Juego [id_juego=" + id_juego + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
-				+ ", genero=" + genero + ", grupo=" + grupo + "]";
+				+ ", genero=" + genero + "]";
 	}
 	
 }

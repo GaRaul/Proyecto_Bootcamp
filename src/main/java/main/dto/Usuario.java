@@ -214,7 +214,7 @@ public class Usuario {
 		return "Usuario [nombre_usuario=" + nombre_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", fecha_creacion="
 				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
-				+ usuarioSteam + ", grupo=" + grupo + ", mensaje=" + mensaje + ", grupos=" + grupos + "]";
+				+ usuarioSteam + ", grupos=" + grupos + "]";
 	}
 
 }
