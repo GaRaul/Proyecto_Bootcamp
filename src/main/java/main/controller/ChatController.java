@@ -40,7 +40,7 @@ public class ChatController {
 	}
 
 	@PostMapping("/chats")
-	public Chat salvarChat(@RequestBody Chat chat) {
+	public Chat guardarChat(@RequestBody Chat chat) {
 
 		return chatServiceImpl.guardarChat(chat);
 	}
