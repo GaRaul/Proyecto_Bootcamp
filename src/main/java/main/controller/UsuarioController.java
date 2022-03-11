@@ -58,11 +58,11 @@ public class UsuarioController {
 		usuario_seleccionado.setApellidos(usuario.getApellidos());
 		usuario_seleccionado.setEmail(usuario.getEmail());
 		usuario_seleccionado.setPassword(usuario.getPassword());
-		usuario_seleccionado.setFotoPerfil(usuario.getFotoPerfil());
+		usuario_seleccionado.setFoto_perfil(usuario.getFoto_perfil());
 		usuario_seleccionado.setFecha_creacion(usuario.getFecha_creacion());
 		usuario_seleccionado.setFecha_modificacion(usuario.getFecha_modificacion());
-		usuario_seleccionado.setRol(usuario.getRol());
-		usuario_seleccionado.setUsuarioSteam(usuario.getUsuarioSteam());
+		usuario_seleccionado.setRole(usuario.getRole());
+		usuario_seleccionado.setUsuario_steam(usuario.getUsuario_steam());
 		usuario_seleccionado.setGrupo(usuario.getGrupo());
 		usuario_seleccionado.setMensaje(usuario.getMensaje());
 

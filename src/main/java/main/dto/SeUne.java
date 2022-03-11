@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "SeUne")
+@Table(name = "Se_une")
 public class SeUne {
 
 	@Id
@@ -23,7 +23,7 @@ public class SeUne {
 	Grupo grupo;
 
 	@ManyToOne
-	@JoinColumn(name = "Nombre_usuario")
+	@JoinColumn(name = "Username")
 	Usuario usuario;
 
 	// CONSTRUCTORES

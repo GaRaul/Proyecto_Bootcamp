@@ -20,8 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Usuario {
 
 	@Id
-	@Column(name = "Nombre_Usuario")
-	private String nombre_usuario;
+	@Column(name = "Username")
+	private String username;
 
 	@Column(name = "Nombre")
 	private String nombre;
@@ -32,11 +32,11 @@ public class Usuario {
 	@Column(name = "Email")
 	private String email;
 
-	@Column(name = "Palabra_clave")
+	@Column(name = "Password")
 	private String password;
 
 	@Column(name = "Foto_perfil")
-	private String fotoPerfil;
+	private String foto_perfil;
 
 	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 	@Column(name = "Fecha_creacion")
@@ -46,18 +46,18 @@ public class Usuario {
 	@Column(name = "Fecha_modificacion")
 	private LocalDateTime fecha_modificacion;
 
-	@Column(name = "Rol")
-	private String rol;
+	@Column(name = "Role")
+	private String role;
 
-	@Column(name = "Usuario_Steam")
-	private String usuarioSteam;
+	@Column(name = "Usuario_steam")
+	private String usuario_steam;
 
 	@OneToMany 
-	@JoinColumn(name = "Nombre_Usuario")
+	@JoinColumn(name = "Username")
 	private List<Grupo> grupo;
 
 	@OneToMany
-	@JoinColumn(name = "Nombre_Usuario")
+	@JoinColumn(name = "Username")
 	private List<Mensaje> mensaje;
 
 	@ManyToOne
@@ -69,43 +69,43 @@ public class Usuario {
 	}
 
 	/**
-	 * @param nombreUsuario
+	 * @param username
 	 * @param nombre
 	 * @param apellidos
 	 * @param email
 	 * @param password
-	 * @param fotoPerfil
+	 * @param foto_perfil
 	 * @param fecha_creacion
 	 * @param fecha_modificacion
-	 * @param rol
-	 * @param usuarioSteam
+	 * @param role
+	 * @param usuario_steam
 	 * @param grupo
 	 * @param mensaje
 	 * @param grupos
 	 */
-	public Usuario(String nombre_usuario, String nombre, String apellidos, String email, String password,
-			String fotoPerfil, LocalDateTime fecha_creacion, LocalDateTime fecha_modificacion, String rol,
-			String usuarioSteam, Grupo grupos) {
-		this.nombre_usuario = nombre_usuario;
+	public Usuario(String username, String nombre, String apellidos, String email, String password,
+			String foto_perfil, LocalDateTime fecha_creacion, LocalDateTime fecha_modificacion, String role,
+			String usuario_steam, Grupo grupos) {
+		this.username = username;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
 		this.password = password;
-		this.fotoPerfil = fotoPerfil;
+		this.foto_perfil = foto_perfil;
 		this.fecha_creacion = fecha_creacion;
 		this.fecha_modificacion = fecha_modificacion;
-		this.rol = rol;
-		this.usuarioSteam = usuarioSteam;
+		this.role = role;
+		this.usuario_steam = usuario_steam;
 		this.grupos = grupos;
 	}
 
 	// GETTERS Y SETTERS
-	public String getNombre_usuario() {
-		return nombre_usuario;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNombre_usuario(String nombre_usuario) {
-		this.nombre_usuario = nombre_usuario;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getNombre() {
@@ -140,12 +140,12 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public String getFotoPerfil() {
-		return fotoPerfil;
+	public String getFoto_perfil() {
+		return foto_perfil;
 	}
 
-	public void setFotoPerfil(String fotoPerfil) {
-		this.fotoPerfil = fotoPerfil;
+	public void setFoto_perfil(String foto_perfil) {
+		this.foto_perfil = foto_perfil;
 	}
 
 	public LocalDateTime getFecha_creacion() {
@@ -164,20 +164,20 @@ public class Usuario {
 		this.fecha_modificacion = fecha_modificacion;
 	}
 
-	public String getRol() {
-		return rol;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRol(String rol) {
-		this.rol = rol;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
-	public String getUsuarioSteam() {
-		return usuarioSteam;
+	public String getUsuario_steam() {
+		return usuario_steam;
 	}
 
-	public void setUsuarioSteam(String usuarioSteam) {
-		this.usuarioSteam = usuarioSteam;
+	public void setUsuario_steam(String usuario_steam) {
+		this.usuario_steam = usuario_steam;
 	}
 
 	public Grupo getGrupos() {
@@ -211,10 +211,10 @@ public class Usuario {
 	// METODO TO STRING
 	@Override
 	public String toString() {
-		return "Usuario [nombre_usuario=" + nombre_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos
-				+ ", email=" + email + ", password=" + password + ", fotoPerfil=" + fotoPerfil + ", fecha_creacion="
-				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", rol=" + rol + ", usuarioSteam="
-				+ usuarioSteam + ", grupos=" + grupos + "]";
+		return "Usuario [username=" + username + ", nombre=" + nombre + ", apellidos=" + apellidos
+				+ ", email=" + email + ", password=" + password + ", foto_perfil=" + foto_perfil + ", fecha_creacion="
+				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", role=" + role + ", usuario_steam="
+				+ usuario_steam + ", grupos=" + grupos + "]";
 	}
 
 }
