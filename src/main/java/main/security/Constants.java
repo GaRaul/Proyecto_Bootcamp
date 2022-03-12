@@ -3,9 +3,6 @@ package main.security;
 public class Constants {
 
 	// Spring Security
-
-	public static final String SWAGGER_JSON = "/v2/api-docs";
-	public static final String SWAGGER_URL = "/swagger-ui/index.html";
 	public static final String[] ALLOWED_SWAGGER = {"/auth/**",
 													"/v2/api-docs/**",
 													"/swagger-ui/**",

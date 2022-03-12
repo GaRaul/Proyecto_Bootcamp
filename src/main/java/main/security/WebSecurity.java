@@ -40,7 +40,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 * no requiere autenticación 5. Se indica que el resto de URLs esten securizadas
 		 */
 		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors().and()
-				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.GET, LOGIN_URL).permitAll()
+				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
 				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll().anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()));
