@@ -6,17 +6,12 @@ public class Constants {
 
 	public static final String SWAGGER_JSON = "/v2/api-docs";
 	public static final String SWAGGER_URL = "/swagger-ui/index.html";
-	public static final String[] ALLOWED_SwAGGER = {
-			// -- Swagger UI v2
-            "/v2/api-docs",
-            "/configuration/ui",
-            "/configuration/security",
-            "/swagger-ui/index.html",
-            "/webjars/",
-            // -- Swagger UI v3 (OpenAPI)
-            "/v3/api-docs/",
-            "/swagger-ui/",
-            "/swagger-ui/index.html"};
+	public static final String[] ALLOWED_SWAGGER = {"/auth/**",
+													"/v2/api-docs/**",
+													"/swagger-ui/**",
+													"/swagger-resources/**",
+													"/configuration/**"
+													};
 	public static final String LOGIN_URL = "/login";
 	public static final String HEADER_AUTHORIZACION_KEY = "Authorization";
 	public static final String TOKEN_BEARER_PREFIX = "Bearer ";
