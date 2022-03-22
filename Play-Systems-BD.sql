@@ -15,23 +15,23 @@ Genero varchar(100) DEFAULT NULL
 CREATE TABLE Grupo (
 Id_grupo int AUTO_INCREMENT PRIMARY KEY,
 Id_juego int NOT NULL,
-Modo_de_Juego enum('Coop', 'PvP', 'PvE') DEFAULT NULL,
-Dimension int DEFAULT 2,
+Modo_de_Juego enum('Coop', 'PvP', 'PvE') DEFAULT NULL, /*POR ELIMINAR*/
+Dimension int DEFAULT 2, /*POR ELIMINAR*/
 Descripcion varchar(500) DEFAULT NULL,
-Juego_nuevo varchar(100) DEFAULT NULL,
+Juego_nuevo varchar(100) DEFAULT NULL, /*POR ELIMINAR*/
 FOREIGN KEY (Id_juego) REFERENCES Juego(Id_juego) ON DELETE CASCADE ON UPDATE CASCADE);
 
 CREATE TABLE Usuario (
-Nombre_usuario varchar(20) NOT NULL PRIMARY KEY,
+Username varchar(20) NOT NULL PRIMARY KEY,
 Nombre varchar(20) DEFAULT NULL,
 Apellidos varchar(50) DEFAULT NULL,
 Email varchar(100) DEFAULT NULL,
-Palabra_clave varchar(100) DEFAULT NULL,
+Password varchar(100) DEFAULT NULL,
 Usuario_steam varchar(20) DEFAULT NULL,
 Foto_perfil varchar(255) DEFAULT NULL,
 Fecha_creacion datetime NOT NULL,
 Fecha_modificacion datetime NOT NULL,
-Rol varchar(50) DEFAULT NULL,
+Role enum('ROLE_ADMIN', 'ROLE_USER') DEFAULT NULL,
 Id_grupo int NOT NULL,
 FOREIGN KEY (Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE);
 
@@ -47,7 +47,7 @@ Nombre_usuario varchar(20) DEFAULT NULL,
 Contenido varchar(500) DEFAULT NULL,
 Hora datetime DEFAULT NULL,
 FOREIGN KEY (Id_chat) REFERENCES Chat(Id_chat) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (Nombre_usuario) REFERENCES Usuario(Nombre_usuario) ON DELETE CASCADE ON UPDATE CASCADE);
+FOREIGN KEY (Nombre_usuario) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
 
 CREATE TABLE Se_Une (
 Id_seune int NOT NULL AUTO_INCREMENT,
@@ -55,7 +55,7 @@ Id_grupo int NOT NULL,
 Nombre_usuario varchar(20) NOT NULL,
 PRIMARY KEY(Id_seune, Id_grupo, Nombre_usuario),
 FOREIGN KEY(Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(Nombre_usuario) REFERENCES Usuario(Nombre_usuario) ON DELETE CASCADE ON UPDATE CASCADE);
+FOREIGN KEY(Nombre_usuario) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
 
 /*INSERCIONES*/
 INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('League of Legends', '2 equipos de 5 jugadores pelean por destruir el Nexo enemigo', 'https://www.leagueoflegends.com/static/placeholder-1c66220c6149b49352c4cf496f70ad86.jpg', 'MOBA');
@@ -70,12 +70,12 @@ INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (3, '
 INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (4, 'PvP', 2, 'Busco jugadores para jugar a Mario Kart');
 INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (5, 'Coop', 2, 'Busco jugadores para jugar a Age of Empires IV');
 
-INSERT INTO Usuario VALUES ('albert', 'Albert', 'Notario Mestres', 'albertnotariomestres@gmail.com', '12345', 'Nones', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'user', 1);
-INSERT INTO Usuario VALUES ('abel', 'Abel', 'Jornet Molero', 'abel_jornet@gmail.com', '56789', 'JoMo', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'user', 1);
-INSERT INTO Usuario VALUES ('raul', 'Raul', 'Garrido Rasillo', 'rgarrido@gmail.com', '13468', 'GaRa', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'user', 2);
-INSERT INTO Usuario VALUES ('edgar', 'Edgar', 'Falcó Mestres', 'e.falco@gmail.com', '25836', 'FaMe', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'user', 2);
-INSERT INTO Usuario VALUES ('jordi', 'Jordi', 'Pámies Navarro', 'jpamiesnavarro@gmail.com', '14785', 'PaNa', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'user', 3);
-INSERT INTO Usuario VALUES ('beatriz', 'Beatriz', 'Hervás Ruiz', 'bhervasruiz@gmail.com', '25356', 'HeRu', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'user', 3);
+INSERT INTO Usuario VALUES ('albert', 'Albert', 'Notario Mestres', 'albertnotariomestres@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'Nones', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_USER', 1);
+INSERT INTO Usuario VALUES ('abel', 'Abel', 'Jornet Molero', 'abel_jornet@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'JoMo', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_ADMIN', 1);
+INSERT INTO Usuario VALUES ('raul', 'Raul', 'Garrido Rasillo', 'rgarrido@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'GaRa', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_USER', 2);
+INSERT INTO Usuario VALUES ('edgar', 'Edgar', 'Falcó Mestres', 'e.falco@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'FaMe', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_USER', 2);
+INSERT INTO Usuario VALUES ('jordi', 'Jordi', 'Pámies Navarro', 'jpamiesnavarro@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'PaNa', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_USER', 3);
+INSERT INTO Usuario VALUES ('beatriz', 'Beatriz', 'Hervás Ruiz', 'bhervasruiz@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'HeRu', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_USER', 3);
 
 INSERT INTO Chat (Id_grupo) VALUES (1);
 INSERT INTO Chat (Id_grupo) VALUES (2);
