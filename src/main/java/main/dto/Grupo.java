@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +15,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import main.utils.Modo_de_Juego;
-
 @Entity
 @Table(name="Grupo")
 public class Grupo {
@@ -28,23 +24,16 @@ public class Grupo {
 	@Column(name="Id_grupo")
 	private Long id_grupo;
 	
+	@Column(name="Nombre_grupo")
+	private String nombre_grupo; 
+	
 	@ManyToOne 
 	@JoinColumn(name = "Id_juego")
 	private Juego juego;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name="Modo_de_Juego")
-	private Modo_de_Juego modo_de_juego;
-	
-	@Column(name="Dimension")
-	private int dimension;
-	
+			
 	@Column(name="Descripcion")
 	private String descripcion;
-	
-	@Column(name="Juego_nuevo")
-	private String juego_nuevo;
-	
+		
 	@OneToMany
 	@JoinColumn(name="Id_grupo")
 	private List<Usuario> usuarios;
@@ -53,15 +42,12 @@ public class Grupo {
 		super();
 	}
 
-	public Grupo(Long id_grupo, Juego juego, Modo_de_Juego modo_de_juego, int dimension, String descripcion,
-			String juego_nuevo) {
+	public Grupo(Long id_grupo, String nombre_grupo, Juego juego, String descripcion) {
 		super();
 		this.id_grupo = id_grupo;
+		this.nombre_grupo = nombre_grupo;
 		this.juego = juego;
-		this.modo_de_juego = modo_de_juego;
-		this.dimension = dimension;
 		this.descripcion = descripcion;
-		this.juego_nuevo = juego_nuevo;
 	}
 
 	public Long getId_grupo() {
@@ -72,6 +58,14 @@ public class Grupo {
 		this.id_grupo = id_grupo;
 	}
 
+	public String getNombre_grupo() {
+		return nombre_grupo;
+	}
+
+	public void setNombre_grupo(String nombre_grupo) {
+		this.nombre_grupo = nombre_grupo;
+	}
+
 	public Juego getJuego() {
 		return juego;
 	}
@@ -80,36 +74,12 @@ public class Grupo {
 		this.juego = juego;
 	}
 
-	public Modo_de_Juego getModo_de_juego() {
-		return modo_de_juego;
-	}
-
-	public void setModo_de_juego(Modo_de_Juego modo_de_juego) {
-		this.modo_de_juego = modo_de_juego;
-	}
-
-	public int getDimension() {
-		return dimension;
-	}
-
-	public void setDimension(int dimension) {
-		this.dimension = dimension;
-	}
-
 	public String getDescripcion() {
 		return descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public String getJuego_nuevo() {
-		return juego_nuevo;
-	}
-
-	public void setJuego_nuevo(String juego_nuevo) {
-		this.juego_nuevo = juego_nuevo;
 	}
 
 	@JsonIgnore
@@ -124,8 +94,7 @@ public class Grupo {
 
 	@Override
 	public String toString() {
-		return "Grupo [id_grupo=" + id_grupo + ", juego=" + juego + ", modo_de_juego=" + modo_de_juego + ", dimension=" + dimension
-				+ ", descripcion=" + descripcion + ", juego_nuevo=" + juego_nuevo + "]";
+		return "Grupo [id_grupo=" + id_grupo + ", nombre_grupo=" + nombre_grupo + ", juego=" + juego + ", descripcion=" + descripcion + "]";
 	}
 	
 }

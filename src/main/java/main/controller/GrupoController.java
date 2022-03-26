@@ -55,11 +55,9 @@ public class GrupoController {
 
 		grupo_seleccionado = grupoServiceImpl.grupoXID(id);
 
+		grupo_seleccionado.setNombre_grupo(grupo.getNombre_grupo());
 		grupo_seleccionado.setJuego(grupo.getJuego());
 		grupo_seleccionado.setDescripcion(grupo.getDescripcion());
-		grupo_seleccionado.setDimension(grupo.getDimension());
-		grupo_seleccionado.setJuego_nuevo(grupo.getJuego_nuevo());
-		grupo_seleccionado.setModo_de_juego(grupo.getModo_de_juego());
 		grupo_seleccionado.setUsuarios(grupo.getUsuarios());
 
 		grupo_actualizado = grupoServiceImpl.actualizarGrupo(grupo_seleccionado);
