@@ -41,7 +41,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 */
 		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors().and()
 				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
-				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll().anyRequest().authenticated().and()
+				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll().antMatchers(HttpMethod.POST, ALLOWED_SWAGGER)
+				.permitAll().antMatchers(HttpMethod.PUT, ALLOWED_SWAGGER).permitAll()
+				.antMatchers(HttpMethod.DELETE, ALLOWED_SWAGGER).permitAll().anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()));
 	}
