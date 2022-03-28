@@ -14,11 +14,9 @@ Genero varchar(100) DEFAULT NULL
 
 CREATE TABLE Grupo (
 Id_grupo int AUTO_INCREMENT PRIMARY KEY,
-Id_juego int NOT NULL,
-Modo_de_Juego enum('Coop', 'PvP', 'PvE') DEFAULT NULL, /*POR ELIMINAR*/
-Dimension int DEFAULT 2, /*POR ELIMINAR*/
+Nombre_grupo varchar(20) DEFAULT NULL,
+Id_juego int DEFAULT NULL,
 Descripcion varchar(500) DEFAULT NULL,
-Juego_nuevo varchar(100) DEFAULT NULL, /*POR ELIMINAR*/
 FOREIGN KEY (Id_juego) REFERENCES Juego(Id_juego) ON DELETE CASCADE ON UPDATE CASCADE);
 
 CREATE TABLE Usuario (
@@ -29,10 +27,10 @@ Email varchar(100) DEFAULT NULL,
 Password varchar(100) DEFAULT NULL,
 Usuario_steam varchar(20) DEFAULT NULL,
 Foto_perfil varchar(255) DEFAULT NULL,
-Fecha_creacion datetime NOT NULL,
-Fecha_modificacion datetime NOT NULL,
+Fecha_creacion datetime DEFAULT NULL,
+Fecha_modificacion datetime DEFAULT NULL,
 Role enum('ROLE_ADMIN', 'ROLE_USER') DEFAULT NULL,
-Id_grupo int NOT NULL,
+Id_grupo int DEFAULT NULL,
 FOREIGN KEY (Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE);
 
 CREATE TABLE Chat (
@@ -58,17 +56,17 @@ FOREIGN KEY(Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CAS
 FOREIGN KEY(Nombre_usuario) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
 
 /*INSERCIONES*/
-INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('League of Legends', '2 equipos de 5 jugadores pelean por destruir el Nexo enemigo', 'https://www.leagueoflegends.com/static/placeholder-1c66220c6149b49352c4cf496f70ad86.jpg', 'MOBA');
-INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Elden Ring', 'Juego RPG de fantasía oscura', 'https://i.redd.it/3e2afpjsi4f61.png', 'ARPG');
-INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Valorant', 'Shooter competitivo', 'https://images.cults3d.com/4QqRV9kLYYEuw9ur_X3yjQl1sjk=/516x516/https://files.cults3d.com/uploaders/15024335/illustration-file/a86d53e4-2bd9-4a8f-9550-986686c3131a/gi0mAjIh_400x400.png', 'FPS');
-INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Mario Kart', 'Juego de conducción', 'https://upload.wikimedia.org/wikipedia/commons/3/30/Mario_kart_first_logo.png', 'CONDUCCIÓN');
+INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('League of Legends', '2 equipos de 5 jugadores pelean por destruir el Nexo enemigo', 'https://phantom-marca.unidadeditorial.es/abfd01e815b28d5553ed7ba9fa2e9647/crop/0x0/1980x1112/resize/1320/f/jpg/assets/multimedia/imagenes/2022/03/16/16474267987028.jpg', 'MOBA');
+INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Elden Ring', 'Juego RPG de fantasía oscura', 'https://images.gnwcdn.com/2022/articles/2022-03-11-17-06/elden-ring-walkthrough-8042-1647018411119.jpg/EG11/resize/1200x-1/elden-ring-walkthrough-8042-1647018411119.jpg', 'ARPG');
+INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Valorant', 'Shooter competitivo', 'https://media.vandal.net/i/1200x630/4-2020/20204271333472_2.jpg', 'FPS');
+INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Mario Kart', 'Juego de conducción', 'https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioKart8Deluxe_image1600w.jpg', 'CONDUCCIÓN');
 INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('Age of Empires IV', 'Juego de estrategia medieval', 'https://i.blogs.es/50a9b3/age-of-empires-iv/1366_2000.jpg', 'ESTRATEGIA');
 
-INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (1, 'Coop', 2, 'Busco jugadores para jugar a LOL');
-INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES(2, 'Coop', 2, 'Busco jugadores para jugar a Elden Ring');
-INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (3, 'Coop', 2, 'Busco jugadores para jugar a Valorant');
-INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (4, 'PvP', 2, 'Busco jugadores para jugar a Mario Kart');
-INSERT INTO Grupo (Id_juego, Modo_de_Juego, Dimension, Descripcion) VALUES (5, 'Coop', 2, 'Busco jugadores para jugar a Age of Empires IV');
+INSERT INTO Grupo (Id_juego, Nombre_grupo, Descripcion) VALUES (1, 'Grupo1', 'Busco jugadores para jugar a LOL');
+INSERT INTO Grupo (Id_juego, Nombre_grupo, Descripcion) VALUES(2, 'Grupo2', 'Busco jugadores para jugar a Elden Ring');
+INSERT INTO Grupo (Id_juego, Nombre_grupo, Descripcion) VALUES (3, 'Grupo3', 'Busco jugadores para jugar a Valorant');
+INSERT INTO Grupo (Id_juego, Nombre_grupo, Descripcion) VALUES (4, 'Grupo4', 'Busco jugadores para jugar a Mario Kart');
+INSERT INTO Grupo (Id_juego, Nombre_grupo, Descripcion) VALUES (5, 'Grupo5', 'Busco jugadores para jugar a Age of Empires IV');
 
 INSERT INTO Usuario VALUES ('albert', 'Albert', 'Notario Mestres', 'albertnotariomestres@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'Nones', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_USER', 1);
 INSERT INTO Usuario VALUES ('abel', 'Abel', 'Jornet Molero', 'abel_jornet@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', 'JoMo', 'https://logos-marcas.com/wp-content/uploads/2020/12/Danone-Logotipo-2017-presente.jpg', '1998-01-23 12:45:56', '1998-01-23 12:45:56', 'ROLE_ADMIN', 1);
