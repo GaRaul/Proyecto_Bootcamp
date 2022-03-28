@@ -2,7 +2,6 @@ package main.security;
 
 import static main.security.Constants.LOGIN_URL;
 import static main.security.Constants.REGISTER_URL;
-import static main.security.Constants.UPDATE_URL;
 import static main.security.Constants.ALLOWED_SWAGGER;
 
 import org.springframework.context.annotation.Bean;
@@ -44,7 +43,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors().and()
 				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
 				.antMatchers(HttpMethod.POST, REGISTER_URL).permitAll().antMatchers(HttpMethod.GET, ALLOWED_SWAGGER)
-				.permitAll().antMatchers(HttpMethod.PUT, UPDATE_URL).permitAll().anyRequest().authenticated().and()
+				.permitAll().anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()));
 	}
