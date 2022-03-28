@@ -32,36 +32,35 @@ public class SimpleCORSFilter implements Filter {
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("*"));
 		response.setHeader("Access-Control-Allow-Methods", "POST, HEAD, PUT, GET, OPTIONS, DELETE");
 		response.setHeader("Access-Control-Max-Age", "3600");
-		response.setHeader("Access-Control-Allow-Headers", "access_token, authorization, content-type");
+		response.setHeader("ExposeHeaders", "x-amz-server-side-encryption, x-amz-request-id, x-amz-id-2");
+		response.setHeader("Access-Control-Allow-Headers", "*");
 
-		if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-			response.setHeader("Access-Control-Allow-Origin", "*");
-			response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
+//		if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+//			response.setHeader("Access-Control-Allow-Origin", "*");
+//			response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
+//
+//			response.setHeader("Access-Control-Allow-Headers",
+//					"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
+//
+//			response.setHeader("Access-Control-Max-Age", "1728000");
+//			response.setHeader("Content-Type", "text/plain; charset=utf-8");
+//			response.setHeader("Content-Length", "0");
+//		}
+//		if ("POST".equalsIgnoreCase(request.getMethod())) {
+//			response.setHeader("Access-Control-Allow-Origin", "*");
+//			response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
+//			response.setHeader("Access-Control-Allow-Headers",
+//					"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
+//			response.setHeader("Access-Control-Expose-Headers", "Content-Length,Content-Range");
+//		}
+//		if ("PUT".equalsIgnoreCase(request.getMethod())) {
+//			response.setHeader("Access-Control-Allow-Origin", "*");
+//			response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
+//			response.setHeader("Access-Control-Allow-Headers",
+//					"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
+//			response.setHeader("Access-Control-Expose-Headers", "Content-Length,Content-Range");
 
-			response.setHeader("Access-Control-Allow-Headers",
-					"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
-
-			response.setHeader("Access-Control-Max-Age", "1728000");
-			response.setHeader("Content-Type", "text/plain; charset=utf-8");
-			response.setHeader("Content-Length", "0");
-		}
-		if ("POST".equalsIgnoreCase(request.getMethod())) {
-			response.setHeader("Access-Control-Allow-Origin", "*");
-			response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
-			response.setHeader("Access-Control-Allow-Headers",
-					"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
-			response.setHeader("Access-Control-Expose-Headers", "Content-Length,Content-Range");
-		}
-		if ("PUT".equalsIgnoreCase(request.getMethod())) {
-			response.setHeader("Access-Control-Allow-Origin", "*");
-			response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
-			response.setHeader("Access-Control-Allow-Headers",
-					"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
-			response.setHeader("Access-Control-Expose-Headers", "Content-Length,Content-Range");
-
-		} else {
 			chain.doFilter(req, res);
-		}
 
 	}
 
