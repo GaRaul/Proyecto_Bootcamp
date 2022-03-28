@@ -29,8 +29,8 @@ public class SimpleCORSFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		
-		response.addHeader("Access-Control-Allow-Origin", "https://play-systems.herokuapp.com");
-		response.addHeader("Access-Control-Allow-Methods", "POST, HEAD,  PUT, GET, OPTIONS, DELETE");
+		response.addHeader("Access-Control-Allow-Origin", request.getHeader("*"));
+		response.addHeader("Access-Control-Allow-Methods", "POST, HEAD, PUT, GET, OPTIONS, DELETE");
 		response.setHeader("Access-Control-Max-Age", "3600");
 		response.setHeader("Access-Control-Allow-Headers",
 				"access_token, authorization, content-type");
