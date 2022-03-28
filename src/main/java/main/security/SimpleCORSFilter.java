@@ -32,8 +32,6 @@ public class SimpleCORSFilter implements Filter {
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("*"));
 		response.setHeader("Access-Control-Allow-Methods", "POST, HEAD, PUT, GET, OPTIONS, DELETE");
 		response.setHeader("Access-Control-Max-Age", "3600");
-		response.setHeader("Acces-Control-Expose-Headers",
-				"x-amz-server-side-encryption, x-amz-request-id, x-amz-id-2");
 		response.setHeader("Access-Control-Allow-Headers", "*");
 
 //		if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
