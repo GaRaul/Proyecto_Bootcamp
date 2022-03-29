@@ -70,7 +70,7 @@ public class UsuarioController {
 
 		return usuarioXID;
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	
 	@PutMapping("/usuarios/{id}")
 	public Usuario actualizarUsuario(@PathVariable(name = "id") String id, @RequestBody Usuario usuario) {
 
