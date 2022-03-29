@@ -16,26 +16,26 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="Grupo")
+@Table(name = "Grupo")
 public class Grupo {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Id_grupo")
+	@Column(name = "Id_grupo")
 	private Long id_grupo;
-	
-	@Column(name="Nombre_grupo")
-	private String nombre_grupo; 
-	
-	@ManyToOne 
+
+	@Column(name = "Nombre_grupo")
+	private String nombre_grupo;
+
+	@ManyToOne
 	@JoinColumn(name = "Id_juego")
 	private Juego juego;
-			
-	@Column(name="Descripcion")
+
+	@Column(name = "Descripcion")
 	private String descripcion;
-		
+
 	@OneToMany
-	@JoinColumn(name="Id_grupo")
+	@JoinColumn(name = "Id_grupo")
 	private List<Usuario> usuarios;
 
 	public Grupo() {
@@ -94,7 +94,8 @@ public class Grupo {
 
 	@Override
 	public String toString() {
-		return "Grupo [id_grupo=" + id_grupo + ", nombre_grupo=" + nombre_grupo + ", juego=" + juego + ", descripcion=" + descripcion + "]";
+		return "Grupo [id_grupo=" + id_grupo + ", nombre_grupo=" + nombre_grupo + ", juego=" + juego + ", descripcion="
+				+ descripcion + ", usuarios=" + usuarios + "]";
 	}
-	
+
 }
