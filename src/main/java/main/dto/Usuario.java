@@ -56,6 +56,10 @@ public class Usuario {
 	@JoinColumn(name = "Username")
 	private List<Grupo> grupo;
 
+	@OneToMany
+	@JoinColumn(name = "Username")
+	private List<Mensaje> mensaje;
+
 	@ManyToOne
 	@JoinColumn(name = "Id_grupo")
 	Grupo grupos;
@@ -194,13 +198,23 @@ public class Usuario {
 		this.grupo = grupo;
 	}
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Mensaje")
+	public List<Mensaje> getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(List<Mensaje> mensaje) {
+		this.mensaje = mensaje;
+	}
+
 	// METODO TO STRING
 	@Override
 	public String toString() {
 		return "Usuario [username=" + username + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", email=" + email + ", password=" + password + ", foto_perfil=" + foto_perfil + ", fecha_creacion="
 				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", role=" + role + ", usuario_steam="
-				+ usuario_steam + "]";
+				+ usuario_steam + ", grupos=" + grupos + "]";
 	}
 
 }
