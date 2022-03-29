@@ -200,7 +200,7 @@ public class Usuario {
 		return "Usuario [username=" + username + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", email=" + email + ", password=" + password + ", foto_perfil=" + foto_perfil + ", fecha_creacion="
 				+ fecha_creacion + ", fecha_modificacion=" + fecha_modificacion + ", role=" + role + ", usuario_steam="
-				+ usuario_steam + ", grupos=" + grupos + "]";
+				+ usuario_steam + "]";
 	}
 
 }
