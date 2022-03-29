@@ -56,6 +56,10 @@ public class Usuario {
 	@JoinColumn(name = "Username")
 	private List<Grupo> grupo;
 
+	@OneToMany
+	@JoinColumn(name = "Username")
+	private List<Mensaje> mensaje;
+
 	@ManyToOne
 	@JoinColumn(name = "Id_grupo")
 	Grupo grupos;
@@ -194,6 +198,15 @@ public class Usuario {
 		this.grupo = grupo;
 	}
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Mensaje")
+	public List<Mensaje> getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(List<Mensaje> mensaje) {
+		this.mensaje = mensaje;
+	}
 
 	// METODO TO STRING
 	@Override
