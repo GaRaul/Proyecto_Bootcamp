@@ -52,7 +52,7 @@ public class UsuarioController {
 
 		return usuarioServiceImpl.listarUsuario();
 	}
-
+	
 	@PostMapping("/usuarios")
 	public Usuario guardarUsuario(@RequestBody Usuario usuario) {
 		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
