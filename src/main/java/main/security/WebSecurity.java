@@ -2,10 +2,6 @@ package main.security;
 
 import static main.security.Constants.LOGIN_URL;
 import static main.security.Constants.REGISTER_URL;
-
-import java.time.Duration;
-import java.util.Arrays;
-
 import static main.security.Constants.ALLOWED_SWAGGER;
 
 import org.springframework.context.annotation.Bean;
@@ -21,7 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import static org.springframework.security.config.Customizer.withDefaults;
 
 
 @Configuration
@@ -46,7 +41,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 * valores por defecto 3. Se desactiva el filtro CSRF 4. Se indica que el login
 		 * no requiere autenticación 5. Se indica que el resto de URLs esten securizadas
 		 */
-		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors(withDefaults())
+		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors().and()
 				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
 				.antMatchers(HttpMethod.POST, REGISTER_URL).permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll()
@@ -65,16 +60,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
-	  CorsConfiguration cc = new CorsConfiguration();
-	  cc.setAllowedHeaders(Arrays.asList("Origin,Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers","Authorization"));
-	  cc.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));                
-	  cc.setAllowedOrigins(Arrays.asList("/*"));
-	  cc.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT","PATCH"));
-	  cc.addAllowedOrigin("*");
-	  cc.setMaxAge(Duration.ZERO);
-	  cc.setAllowCredentials(Boolean.TRUE);
-	  UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-	  source.registerCorsConfiguration("/**", cc);
-	  return source;
-	 }
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+		return source;
+	}
 }
