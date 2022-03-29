@@ -94,7 +94,7 @@ public class Grupo {
 	@Override
 	public String toString() {
 		return "Grupo [id_grupo=" + id_grupo + ", nombre_grupo=" + nombre_grupo + ", juego=" + juego + ", descripcion="
-				+ descripcion + ", usuarios=" + usuarios + "]";
+				+ descripcion + "]";
 	}
 
 }
