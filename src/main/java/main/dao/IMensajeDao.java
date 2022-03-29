@@ -6,4 +6,6 @@ import main.dto.Mensaje;
 
 public interface IMensajeDao extends JpaRepository<Mensaje, Integer> {
 
+	
+	
 }
