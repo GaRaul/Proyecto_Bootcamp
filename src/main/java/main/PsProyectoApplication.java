@@ -21,7 +21,7 @@ public class PsProyectoApplication {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("https://main.d12pwo6ljzf7lr.amplifyapp.com/**");
+                registry.addMapping("/**").allowedOrigins("https://main.d12pwo6ljzf7lr.amplifyapp.com");
             }
         };
     }
