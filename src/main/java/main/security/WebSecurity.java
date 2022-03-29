@@ -46,7 +46,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 */
 		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors(withDefaults())
 				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
-				.antMatchers(HttpMethod.PUT, REGISTER_URL).permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers(HttpMethod.POST, REGISTER_URL).permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll()
 				.anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
@@ -63,10 +63,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
-//		CorsConfiguration configuration = new CorsConfiguration();		
-//		configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "DELETE"));		 
+		CorsConfiguration configuration = new CorsConfiguration();		
+		configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "DELETE"));		 
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());		
+		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues().combine(configuration));		
 		return source;
 	}
 }
