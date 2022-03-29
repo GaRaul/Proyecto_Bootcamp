@@ -45,6 +45,13 @@ public class MensajeController {
 
 		return mensajeXID;
 	}
+	
+
+	@GetMapping("/mensajes/{id_chat}")
+	public List<Mensaje> findById_chat(@PathVariable(name = "id_chat") Integer id_chat) {
+		return mensajeServiceImpl.findById_chat(id_chat);
+	}
+
 
 	@PutMapping("/mensajes/{id}")
 	public Mensaje actualizarMensaje(@PathVariable(name = "id") Integer id, @RequestBody Mensaje mensaje) {

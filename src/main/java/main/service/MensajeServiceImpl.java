@@ -39,4 +39,9 @@ public class MensajeServiceImpl implements IMensajeService {
 		iMensajeDao.deleteById(id);
 	}
 
+	@Override
+	public List<Mensaje> findById_chat(Integer id_chat) {
+		return iMensajeDao.findById_chat(id_chat);
+	}
+
 }
