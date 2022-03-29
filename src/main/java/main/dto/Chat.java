@@ -37,10 +37,13 @@ public class Chat {
 	public Chat() {
 	}
 
-	public Chat(int id_chat) {
+	public Chat(int id_chat, Grupo grupo, List<Mensaje> mensaje) {
+		super();
 		this.id_chat = id_chat;
+		this.grupo = grupo;
+		this.mensaje = mensaje;
 	}
-
+	
 	// Getters and Setters
 	public int getId_chat() {
 		return id_chat;
