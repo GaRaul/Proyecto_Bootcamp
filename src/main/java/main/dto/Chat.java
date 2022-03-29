@@ -43,7 +43,7 @@ public class Chat {
 		this.grupo = grupo;
 		this.mensaje = mensaje;
 	}
-
+	
 	// Getters and Setters
 	public int getId_chat() {
 		return id_chat;
@@ -61,6 +61,8 @@ public class Chat {
 		this.grupo = grupo;
 	}
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Mensaje")
 	public List<Mensaje> getMensaje() {
 		return mensaje;
 	}
@@ -72,6 +74,6 @@ public class Chat {
 	// ToString
 	@Override
 	public String toString() {
-		return "Chat [id_chat=" + id_chat + "mensajes=" + mensaje + "]";
+		return "Chat [id_chat=" + id_chat + "]";
 	}
 }
