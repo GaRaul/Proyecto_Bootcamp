@@ -5,24 +5,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SuppressWarnings("deprecation")
 @SpringBootApplication
-public class PsProyectoApplication {
+public class PsProyectoApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PsProyectoApplication.class, args);
 	}
 	
-    @SuppressWarnings("deprecation")
 	@Bean
     public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
+        return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("https://main.d12pwo6ljzf7lr.amplifyapp.com");
-            }
+        	public void addCorsMappings(CorsRegistry registry) {
+        		registry.addMapping("/**").allowedOrigins("https://main.d12pwo6ljzf7lr.amplifyapp.com").allowedMethods("*").allowCredentials(true);
+        	}
         };
     }
 
