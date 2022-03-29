@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import main.dao.IMensajeDao;
+import main.dto.Chat;
 import main.dto.Mensaje;
 
 @Service
@@ -13,7 +14,7 @@ public class MensajeServiceImpl implements IMensajeService {
 
 	@Autowired
 	IMensajeDao iMensajeDao;
-
+		
 	@Override
 	public List<Mensaje> listarMensaje() {
 		return iMensajeDao.findAll();
@@ -37,6 +38,11 @@ public class MensajeServiceImpl implements IMensajeService {
 	@Override
 	public void eliminarMensaje(Integer id) {
 		iMensajeDao.deleteById(id);
+	}
+
+	@Override
+	public List<Mensaje> findByChat(Chat Id_Chat) {
+		return iMensajeDao.findByChat(Id_Chat);
 	}
 
 }
