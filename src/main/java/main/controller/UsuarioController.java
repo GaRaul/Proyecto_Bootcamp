@@ -22,7 +22,7 @@ import main.dto.Usuario;
 import main.service.UsuarioServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS,
+@CrossOrigin(origins = "https://main.d12pwo6ljzf7lr.amplifyapp.com/", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS,
 		RequestMethod.DELETE })
 @RequestMapping("/api")
 public class UsuarioController {

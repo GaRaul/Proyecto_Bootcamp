@@ -29,7 +29,7 @@ public class SimpleCORSFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 
-		response.setHeader("Access-Control-Allow-Origin", request.getHeader("https://main.d12pwo6ljzf7lr.amplifyapp.com"));
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("https://main.d12pwo6ljzf7lr.amplifyapp.com/"));
 		response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
 		response.setHeader("Access-Control-Max-Age", "3600");
 		response.setHeader("Access-Control-Allow-Headers",
