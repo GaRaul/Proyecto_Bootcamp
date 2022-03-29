@@ -15,6 +15,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
 @Table(name = "Grupo")
 public class Grupo {
@@ -49,7 +50,7 @@ public class Grupo {
 		this.juego = juego;
 		this.descripcion = descripcion;
 	}
-
+	
 	public Long getId_grupo() {
 		return id_grupo;
 	}
@@ -81,7 +82,7 @@ public class Grupo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Usuario")
 	public List<Usuario> getUsuarios() {
@@ -95,7 +96,7 @@ public class Grupo {
 	@Override
 	public String toString() {
 		return "Grupo [id_grupo=" + id_grupo + ", nombre_grupo=" + nombre_grupo + ", juego=" + juego + ", descripcion="
-				+ descripcion + ", usuarios=" + usuarios + "]";
+				+ descripcion + "]";
 	}
 
 }
