@@ -40,7 +40,7 @@ public class MensajeServiceImpl implements IMensajeService {
 	}
 
 	@Override
-	public List<Mensaje> findById_chat(Integer id_chat) {
+	public List<Mensaje> listarMensajesChat(Integer id_chat) {
 		return iMensajeDao.findById_chat(id_chat);
 	}
 

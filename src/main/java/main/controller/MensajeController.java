@@ -47,9 +47,9 @@ public class MensajeController {
 	}
 	
 
-	@GetMapping("/mensajes/{id_chat}")
-	public List<Mensaje> findById_chat(@PathVariable(name = "id_chat") Integer id_chat) {
-		return mensajeServiceImpl.findById_chat(id_chat);
+	@GetMapping("/mensajes/id_chat/{id_chat}")
+	public List<Mensaje> listarMensajesChat(@PathVariable(name = "id_chat") Integer id_chat) {
+		return mensajeServiceImpl.listarMensajesChat(id_chat);
 	}
 
 

@@ -8,7 +8,7 @@ public interface IMensajeService {
 
 	public List<Mensaje> listarMensaje();
 	
-	public List<Mensaje> findById_chat(Integer id_chat);
+	public List<Mensaje> listarMensajesChat(Integer id_chat);
 	
 	public Mensaje guardarMensaje(Mensaje mensaje);
 	
