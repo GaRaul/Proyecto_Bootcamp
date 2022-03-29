@@ -87,7 +87,7 @@ public class Mensaje {
 	// METODO TO STRING
 	@Override
 	public String toString() {
-		return "Mensaje [id_mensaje=" + id_mensaje + ", contenido=" + contenido + ", hora=" + hora + ", usuario=" + usuario + "]";
+		return "Mensaje [id_mensaje=" + id_mensaje + ", contenido=" + contenido + ", hora=" + hora + "]";
 	}
 
 }
