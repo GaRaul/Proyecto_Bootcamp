@@ -46,13 +46,6 @@ public class MensajeController {
 		return mensajeXID;
 	}
 	
-
-	@GetMapping("/mensajes/id_chat/{id_chat}")
-	public List<Mensaje> listarMensajesChat(@PathVariable(name = "id_chat") Integer id_chat) {
-		return mensajeServiceImpl.listarMensajesChat(id_chat);
-	}
-
-
 	@PutMapping("/mensajes/{id}")
 	public Mensaje actualizarMensaje(@PathVariable(name = "id") Integer id, @RequestBody Mensaje mensaje) {
 

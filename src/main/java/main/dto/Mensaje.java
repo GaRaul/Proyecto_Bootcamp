@@ -31,11 +31,11 @@ public class Mensaje {
 
 	@ManyToOne
 	@JoinColumn(name = "Id_chat")
-	Chat chat;
+	private Chat chat;
 
 	@ManyToOne
 	@JoinColumn(name = "Username")
-	Usuario usuario;
+	private Usuario usuario;
 
 	// CONSTRUCTORES
 	public Mensaje() {
