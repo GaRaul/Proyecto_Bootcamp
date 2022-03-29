@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -34,6 +35,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**").allowedOrigins("*").allowedMethods("*").allowCredentials(true);
+	}
+
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		/*
@@ -43,10 +48,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 */
 		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors().and()
 				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
-				.antMatchers(HttpMethod.POST, REGISTER_URL).permitAll().antMatchers(HttpMethod.GET, ALLOWED_SWAGGER)
-				.permitAll().antMatchers(HttpMethod.PUT, UPDATE_URL).permitAll().antMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated().and()
+				.antMatchers(HttpMethod.POST, REGISTER_URL).permitAll().antMatchers(HttpMethod.OPTIONS).permitAll()
+				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll().antMatchers(HttpMethod.PUT).permitAll()
+				.antMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
-				.addFilter(new JWTAuthorizationFilter(authenticationManager()));
+				.addFilter(new JWTAuthorizationFilter(authenticationManager())).headers().frameOptions().sameOrigin()
+				.httpStrictTransportSecurity().disable();
 	}
 
 	@Override
