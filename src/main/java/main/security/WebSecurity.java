@@ -46,8 +46,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 * valores por defecto 3. Se desactiva el filtro CSRF 4. Se indica que el login
 		 * no requiere autenticación 5. Se indica que el resto de URLs esten securizadas
 		 */
-		httpSecurity.cors(withDefaults());
-		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors(withDefaults())
 				.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
 				.antMatchers(HttpMethod.POST, REGISTER_URL).permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				.antMatchers(HttpMethod.GET, ALLOWED_SWAGGER).permitAll()
