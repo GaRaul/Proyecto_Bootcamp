@@ -61,8 +61,6 @@ public class Chat {
 		this.grupo = grupo;
 	}
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Mensaje")
 	public List<Mensaje> getMensaje() {
 		return mensaje;
 	}
