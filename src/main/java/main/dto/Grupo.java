@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "Grupo")
@@ -41,13 +43,12 @@ public class Grupo {
 		super();
 	}
 
-	public Grupo(Long id_grupo, String nombre_grupo, Juego juego, String descripcion, List<Usuario> usuarios) {
+	public Grupo(Long id_grupo, String nombre_grupo, Juego juego, String descripcion) {
 		super();
 		this.id_grupo = id_grupo;
 		this.nombre_grupo = nombre_grupo;
 		this.juego = juego;
 		this.descripcion = descripcion;
-		this.usuarios = usuarios;
 	}
 	
 	public Long getId_grupo() {
@@ -81,7 +82,8 @@ public class Grupo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Usuario")
 	public List<Usuario> getUsuarios() {
 		return usuarios;
