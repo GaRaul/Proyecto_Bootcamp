@@ -14,14 +14,14 @@ public class PsProyectoApplication implements WebMvcConfigurer {
 		SpringApplication.run(PsProyectoApplication.class, args);
 	}
 	
-	@SuppressWarnings("deprecation")
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
-            }
-        };
-    }
+//	@SuppressWarnings("deprecation")
+//	@Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return new WebMvcConfigurerAdapter() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+//            }
+//        };
+//    }
 }
