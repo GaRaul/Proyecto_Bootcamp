@@ -89,7 +89,8 @@ public class UsuarioController {
 		usuario_seleccionado.setRole(usuario.getRole());
 		usuario_seleccionado.setUsuario_steam(usuario.getUsuario_steam());
 		usuario_seleccionado.setGrupo(usuario.getGrupo());
-
+		usuario_seleccionado.setMensaje(usuario.getMensaje());
+		
 		usuario_actualizado = usuarioServiceImpl.actualizarUsuario(usuario_seleccionado);
 
 		System.out.println("Usuario actualizado: " + usuario_actualizado);
