@@ -82,6 +82,7 @@ public class Grupo {
 		this.descripcion = descripcion;
 	}
 
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Usuario")
 	public List<Usuario> getUsuarios() {
 		return usuarios;
