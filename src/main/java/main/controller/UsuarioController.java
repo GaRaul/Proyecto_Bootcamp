@@ -70,7 +70,7 @@ public class UsuarioController {
 
 		return usuarioXID;
 	}
-
+	@CrossOrigin(origins = "https://main.d12pwo6ljzf7lr.amplifyapp.com")
 	@PutMapping("/usuarios/{id}")
 	public Usuario actualizarUsuario(@PathVariable(name = "id") String id, @RequestBody Usuario usuario) {
 
