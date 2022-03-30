@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import main.dto.SeUne;
+import main.dto.Usuario;
 import main.service.SeUneServiceImpl;
 
 @RestController
@@ -44,6 +45,11 @@ public class SeUneController {
 		System.out.println("SeUne XID: " + seUneXID);
 
 		return seUneXID;
+	}
+	
+	@GetMapping("/seune/grupo/{Username}")
+	public List<SeUne> findByChat(@PathVariable(value = "Username") Usuario Username) {
+		return seUneServiceImpl.findByUsuario(Username);
 	}
 
 	@PutMapping("/seune/{id}")

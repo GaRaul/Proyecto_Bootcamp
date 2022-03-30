@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import main.dao.ISeUneDao;
 import main.dto.SeUne;
+import main.dto.Usuario;
 
 @Service
 public class SeUneServiceImpl implements ISeUneService {
@@ -37,6 +38,11 @@ public class SeUneServiceImpl implements ISeUneService {
 	@Override
 	public void eliminarSeUne(Integer id) {
 		iSeUneDao.deleteById(id);
+	}
+
+	@Override
+	public List<SeUne> findByUsuario(Usuario Username) {
+		return iSeUneDao.findByUsuario(Username);
 	}
 
 }
