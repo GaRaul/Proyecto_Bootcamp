@@ -41,19 +41,19 @@ foreign key (Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CA
 CREATE TABLE Mensaje (
 Id_mensaje int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 Id_chat int NOT NULL,
-Nombre_usuario varchar(20) DEFAULT NULL,
+Username varchar(20) DEFAULT NULL,
 Contenido varchar(500) DEFAULT NULL,
 Hora datetime DEFAULT NULL,
 FOREIGN KEY (Id_chat) REFERENCES Chat(Id_chat) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (Nombre_usuario) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
+FOREIGN KEY (Username) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
 
 CREATE TABLE Se_Une (
 Id_seune int NOT NULL AUTO_INCREMENT,
 Id_grupo int NOT NULL,
-Nombre_usuario varchar(20) NOT NULL,
-PRIMARY KEY(Id_seune, Id_grupo, Nombre_usuario),
+Username varchar(20) NOT NULL,
+PRIMARY KEY(Id_seune, Id_grupo, Username),
 FOREIGN KEY(Id_grupo) REFERENCES Grupo(Id_grupo) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(Nombre_usuario) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
+FOREIGN KEY(Username) REFERENCES Usuario(Username) ON DELETE CASCADE ON UPDATE CASCADE);
 
 /*INSERCIONES*/
 INSERT INTO Juego (Nombre, Descripcion, Imagen, Genero) VALUES ('League of Legends', '2 equipos de 5 jugadores pelean por destruir el Nexo enemigo', 'https://phantom-marca.unidadeditorial.es/abfd01e815b28d5553ed7ba9fa2e9647/crop/0x0/1980x1112/resize/1320/f/jpg/assets/multimedia/imagenes/2022/03/16/16474267987028.jpg', 'MOBA');
@@ -81,19 +81,21 @@ INSERT INTO Chat (Id_grupo) VALUES (3);
 INSERT INTO Chat (Id_grupo) VALUES (4);
 INSERT INTO Chat (Id_grupo) VALUES (5);
 
-INSERT INTO Mensaje (Id_Chat, Nombre_usuario, Contenido, Hora) VALUES (1, 'albert', 'hola que tal', '1998-01-23 12:45:56');
-INSERT INTO Mensaje (Id_Chat, Nombre_usuario, Contenido, Hora) VALUES (1, 'abel', 'bien y tu', '1998-01-23 12:45:56');
-INSERT INTO Mensaje (Id_Chat, Nombre_usuario, Contenido, Hora) VALUES (2, 'raul', 'hola que tal', '1998-01-23 12:45:56');
-INSERT INTO Mensaje (Id_Chat, Nombre_usuario, Contenido, Hora) VALUES (2, 'edgar', 'bien y tu', '1998-01-23 12:45:56');
-INSERT INTO Mensaje (Id_Chat, Nombre_usuario, Contenido, Hora) VALUES (3, 'jordi', 'hola que tal', '1998-01-23 12:45:56');
-INSERT INTO Mensaje (Id_Chat, Nombre_usuario, Contenido, Hora) VALUES (3, 'beatriz', 'bien y tu', '1998-01-23 12:45:56');
+INSERT INTO Mensaje (Id_Chat, Username, Contenido, Hora) VALUES (2, 'raul', 'hola que tal', '1998-01-23 12:45:56');
+INSERT INTO Mensaje (Id_Chat, Username, Contenido, Hora) VALUES (2, 'edgar', 'bien y tu', '1998-01-23 12:45:56');
+INSERT INTO Mensaje (Id_Chat, Username, Contenido, Hora) VALUES (3, 'jordi', 'hola que tal', '1998-01-23 12:45:56');
+INSERT INTO Mensaje (Id_Chat, Username, Contenido, Hora) VALUES (3, 'beatriz', 'bien y tu', '1998-01-23 12:45:56');
 
-INSERT INTO Se_Une (Id_grupo, Nombre_usuario) values (1, 'albert');
-INSERT INTO Se_Une (Id_grupo, Nombre_usuario) values (1, 'abel');
-INSERT INTO Se_Une (Id_grupo, Nombre_usuario) values (2, 'raul');
-INSERT INTO Se_Une (Id_grupo, Nombre_usuario) values (2, 'edgar');
-INSERT INTO Se_Une (Id_grupo, Nombre_usuario) values (3, 'jordi');
-INSERT INTO Se_Une (Id_grupo, Nombre_usuario) values (3, 'beatriz');
+INSERT INTO Se_Une (Id_grupo, Username) values (1, 'albert');
+INSERT INTO Se_Une (Id_grupo, Username) values (2, 'albert');
+INSERT INTO Se_Une (Id_grupo, Username) values (3, 'albert');
+INSERT INTO Se_Une (Id_grupo, Username) values (1, 'abel');
+INSERT INTO Se_Une (Id_grupo, Username) values (1, 'raul');
+INSERT INTO Se_Une (Id_grupo, Username) values (2, 'raul');
+INSERT INTO Se_Une (Id_grupo, Username) values (1, 'edgar');
+INSERT INTO Se_Une (Id_grupo, Username) values (2, 'edgar');
+INSERT INTO Se_Une (Id_grupo, Username) values (3, 'jordi');
+INSERT INTO Se_Une (Id_grupo, Username) values (3, 'beatriz');
 
 /*SELECTS*/
 SELECT * FROM Juego;
